@@ -4,7 +4,8 @@ const cheerio = require("cheerio");
 async function searchManga(req, res) {
   const { manga } = req.params;
   const url = `https://mangahostz.com/find/${manga}`;
-  const mangas = await axios(url)
+  const mangas = await axios
+    .get(url)
     .then((response) => {
       const html = response.data;
       const $ = cheerio.load(html);
