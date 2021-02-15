@@ -1,9 +1,7 @@
 const express = require("express");
-
+const routes = require("./src/routes");
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.json({ message: "eae heroku" });
-});
+app.use(routes);
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT | 3000);
