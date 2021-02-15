@@ -4,7 +4,6 @@ const cheerio = require("cheerio");
 async function searchManga(req, res) {
   const { manga } = req.params;
   const url = `https://mangahostz.com/find/${manga}`;
-  var message = "";
   const mangas = await axios(url)
     .then((response) => {
       const html = response.data;
@@ -20,13 +19,10 @@ async function searchManga(req, res) {
         mangaList.push({ linkManga, mangaId, nome, capa });
         message = "entrou aqui";
       });
-      return mangaList;
+      // return mangaList;
+      return res.json({ message_do_servidor: message });
     })
     .catch(console.error);
-
-  return res.json({ message_do_servidor: message });
 }
 
-module.exports = {
-  searchManga,
-};
+module.exports = searchManga;
