@@ -22,7 +22,7 @@ async function searchManga(req, res) {
     })
     .catch(console.error);
 
-  return res.json(mangas);
+  return res.json({ message: "eae" });
 }
 
 module.exports = {
