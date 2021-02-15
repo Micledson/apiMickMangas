@@ -25,4 +25,6 @@ async function searchManga(req, res) {
     .catch(console.error);
 }
 
-module.exports = searchManga;
+module.exports = {
+  searchManga,
+};
