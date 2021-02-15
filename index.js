@@ -11,4 +11,7 @@ app.use(routes);
 //   return res.json({ rota: "main" });
 // });
 
-app.listen(process.env.PORT || 3000);
+const ip = process.env.IP || "0.0.0.0";
+const port = process.env.PORT || 3000;
+
+app.listen(port, ip);
