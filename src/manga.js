@@ -1,10 +1,10 @@
-const axios = require("axios");
 const cheerio = require("cheerio");
+const api = require("./services/api");
 
 async function searchManga(req, res) {
   const { manga } = req.params;
-  const url = `https://mangahostz.com/find/${manga}`;
-  await axios
+  const url = `find/${manga}`;
+  await api
     .get(url)
     .then((response) => {
       const html = response.data;
